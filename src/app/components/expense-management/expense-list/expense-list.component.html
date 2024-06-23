@@ -1,0 +1,98 @@
+<div class="container">
+  <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>Description</th>
+      <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+    </ng-container>
+    <ng-container matColumnDef="amount">
+      <th mat-header-cell *matHeaderCellDef>Amount</th>
+      <td mat-cell *matCellDef="let element">{{ element.amount }}</td>
+    </ng-container>
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef>Category</th>
+      <td mat-cell *matCellDef="let element">{{ element.category }}</td>
+    </ng-container>
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>Date</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.date | date : "EEEE, MMMM d, y" }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table> -->
+  <div>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <div class="d-flex align-items-center">
+        <div class="profile-container">
+          <img
+            src="https://static.vecteezy.com/system/resources/thumbnails/020/911/732/small/profile-icon-avatar-icon-user-icon-person-icon-free-png.png"
+            class="h-100 w-100"
+            alt="profile image"
+          />
+        </div>
+        <div>
+          <h5 class="mb-1 fw-semibold text-primary">John Doe</h5>
+          <h6>{{ "johndoe@gmail.com" }}</h6>
+        </div>
+      </div>
+      <button mat-flat-button [routerLink]="['/add']">
+        <mat-icon>add_circle</mat-icon>Add Expense
+      </button>
+    </div>
+  </div>
+  <div>
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      class="bg-light-blue mat-elevation-z8"
+    >
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef class="fw-semibold">Id</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef class="fw-semibold">Description</th>
+        <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef class="fw-semibold">Amount</th>
+        <td mat-cell *matCellDef="let element">{{ element.amount }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef class="fw-semibold">Category</th>
+        <td mat-cell *matCellDef="let element">{{ element.category }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef class="fw-semibold">Date</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.date | date : "MMMM d, y" }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef class="fw-semibold">Action</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button [routerLink]="['/edit/', element.id]">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="handleExpenseDelete(element)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</div>
